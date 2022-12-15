@@ -1,14 +1,14 @@
 package med.voll.api.controller;
 
 
-import med.voll.api.records.DoctorsDataRegistration;
+import med.voll.api.records.doctors.DoctorsDataRegistration;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/RegisterDoctor")
+@RequestMapping("/registerDoctor")
 public class DoctorController {
 
     @PostMapping
