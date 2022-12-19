@@ -1,4 +1,4 @@
-package med.voll.api.controller;
+package med.voll.api.controllers;
 
 
 import med.voll.api.records.patient.PatientDataRegistration;
@@ -14,6 +14,6 @@ public class PatientController {
 
     @PostMapping
     public void registerPatientInDataBase(@RequestBody PatientDataRegistration patientDataRegistration){
-        System.out.println(patientDataRegistration.toString());
+
     }
 }

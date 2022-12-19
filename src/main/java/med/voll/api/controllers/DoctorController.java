@@ -1,4 +1,4 @@
-package med.voll.api.controller;
+package med.voll.api.controllers;
 
 
 import med.voll.api.records.doctors.DoctorsDataRegistration;
