@@ -12,6 +12,20 @@ public record DoctorsDataRegistration(
         String email,
         String crm,
         DoctorSpecialty specialty,
-        @JsonProperty("address")
-        DataAddress dataAddress) {
+        DataAddress dataAddress){
+
+    @Override
+    public String toString() {
+        return "DoctorsDataRegistration{" +
+                "name='" + name + '\'' +
+                ", email='" + email + '\'' +
+                ", crm='" + crm + '\'' +
+                ", specialty=" + specialty +
+                ", dataAddress=" + dataAddress +
+                '}';
+    }
 }
+
+
+
+

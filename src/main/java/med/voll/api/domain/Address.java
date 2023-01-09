@@ -1,10 +1,12 @@
 package med.voll.api.domain;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
+
 import jakarta.persistence.Embeddable;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import med.voll.api.records.DataAddress;
+
 
 @Embeddable
 @Getter
@@ -18,4 +20,14 @@ public class Address {
     private String uf;
     private String number;
     private String complementAddress;
+
+    public Address(DataAddress dataAddress) {
+        this.publicPlace = dataAddress.publicPlace();
+        this.district = dataAddress.district();
+        this.zipCode = dataAddress.zipCode();
+        this.city = dataAddress.city();
+        this.uf = dataAddress.uf();
+        this.number = dataAddress.number();
+        this.complementAddress = dataAddress.complementAddress();
+    }
 }
