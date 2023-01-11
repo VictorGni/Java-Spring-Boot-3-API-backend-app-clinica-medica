@@ -6,8 +6,12 @@ import med.voll.api.domain.Address;
 import med.voll.api.domain.DoctorEntity;
 import med.voll.api.records.doctors.DoctorDataList;
 import med.voll.api.records.doctors.DoctorsDataRegistration;
+import med.voll.api.records.doctors.UpdateDoctorData;
 import med.voll.api.repositorys.DoctorRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.web.PageableDefault;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 
@@ -31,7 +35,15 @@ public class DoctorController {
     }
 
     @GetMapping(path = "/list")
-    public List<DoctorDataList> getListOfDoctorsData(){
-        return doctorRepository.findAll().stream().map(DoctorDataList::new).toList();
+    public Page<DoctorDataList> getListOfDoctorsData(@PageableDefault(size = 10, sort = {"name"}) Pageable pagination){
+        return doctorRepository.findAll(pagination).map(DoctorDataList::new);
     }
+
+    @PutMapping(path = "/update")
+    @Transactional
+    public void updateDoctorData(@RequestBody @Valid UpdateDoctorData updateDoctorData){
+        var doctorEntity = doctorRepository.getReferenceById(updateDoctorData.id());
+        doctorEntity.updateData(updateDoctorData);
+    }
+
 }

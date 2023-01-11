@@ -1,10 +1,9 @@
 package med.voll.api.records;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Pattern;
 
-public record DataAddress(
+public record AddressDto(
         @NotBlank
         String publicPlace,
 

@@ -1,7 +1,7 @@
 package med.voll.api.records.patient;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-import med.voll.api.records.DataAddress;
+import med.voll.api.records.AddressDto;
 
 public record PatientDataRegistration(
         String name,
@@ -10,7 +10,7 @@ public record PatientDataRegistration(
         String phoneNumber,
         String cpf,
         @JsonProperty("address")
-        DataAddress address
+        AddressDto address
 ) {
 
 }

@@ -7,13 +7,15 @@ public record DoctorDataList(
         String name,
         String email,
         String crm,
-        DoctorSpecialty specialty) {
+        DoctorSpecialty specialty,
+        Long id) {
 
     public DoctorDataList (DoctorEntity doctorEntity){
         this(doctorEntity.getName(),
             doctorEntity.getEmail(),
             doctorEntity.getCrm(),
-            doctorEntity.getDoctorSpecialty());
+            doctorEntity.getDoctorSpecialty(),
+            doctorEntity.getId());
     }
 }
 
