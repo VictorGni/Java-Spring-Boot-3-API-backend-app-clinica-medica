@@ -28,6 +28,8 @@ public class DoctorEntity {
     @Embedded
     private Address address;
 
+    private Boolean active;
+
     public DoctorEntity(DoctorsDataRegistration doctorsDataRegistration) {
         this.name = doctorsDataRegistration.name();
         this.email = doctorsDataRegistration.email();
@@ -35,6 +37,7 @@ public class DoctorEntity {
         this.cellphone = doctorsDataRegistration.cellphone();
         this.doctorSpecialty = doctorsDataRegistration.specialty();
         this.address = new Address(doctorsDataRegistration.addressDto());
+        this.active = true;
     }
 
     public void updateData(UpdateDoctorData updateDoctorData) {
@@ -46,6 +49,12 @@ public class DoctorEntity {
         }
         if(updateDoctorData.addressDto() != null){
             this.address.updateAdsressData(updateDoctorData.addressDto());
+        }
+    }
+
+    public void inactivate(Long id) {
+        if(id == this.id){
+            this.active = false;
         }
     }
 }
